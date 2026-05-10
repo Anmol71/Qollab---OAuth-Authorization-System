@@ -139,6 +139,22 @@ async function revokeToken(token, tokenTypeHint, clientProfile) {
   return response.data;
 }
 
+async function revokeConsent(accessToken, clientId, clientProfile) {
+  const profile = clientProfile || CLIENT_PROFILES.default;
+  const params = new URLSearchParams({
+    access_token: accessToken,
+    client_id: profile.clientId,
+    client_secret: profile.clientSecret,
+    target_client_id: clientId
+  });
+
+  const response = await axios.post(AUTH_SERVER_URL + '/consent/revoke', params.toString(), {
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+  });
+
+  return response.data;
+}
+
 async function callAPI(endpoint, accessToken) {
   const response = await axios.get(RESOURCE_SERVER_URL + endpoint, {
     headers: { Authorization: 'Bearer ' + accessToken }
@@ -153,5 +169,6 @@ module.exports = {
   exchangeCodeForTokens,
   refreshAccessToken,
   revokeToken,
+  revokeConsent,
   callAPI
 };

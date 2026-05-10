@@ -1,6 +1,7 @@
 'use strict';
 const express = require('express');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 const { db } = require('../models/db');
 const { revokeToken } = require('../services/tokenService');
 
@@ -21,6 +22,20 @@ router.post('/', function (req, res) {
     }
 
     if (token) {
+      const decoded = jwt.decode(token);
+      if (decoded && decoded.jti) {
+        const accessRow = db.findAccessToken(decoded.jti);
+        if (accessRow) {
+          db.deleteConsent(accessRow.user_id, accessRow.client_id);
+        }
+      } else {
+        const tokenHash = require('../services/cryptoService').hashToken(token);
+        const refreshRow = db.findRefreshToken(tokenHash);
+        if (refreshRow) {
+          db.deleteConsent(refreshRow.user_id, refreshRow.client_id);
+        }
+      }
+
       revokeToken(token, token_type_hint);
       db.auditLog(
         'TOKEN_REVOKED',

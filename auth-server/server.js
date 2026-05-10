@@ -40,6 +40,7 @@ app.use('/authorize', require('./src/routes/authorize'));
 app.use('/token', require('./src/routes/token'));
 app.use('/revoke', require('./src/routes/revoke'));
 app.use('/introspect', require('./src/routes/introspect'));
+app.use('/consent', require('./src/routes/consent'));
 
 app.get('/health', function (req, res) {
   res.json({

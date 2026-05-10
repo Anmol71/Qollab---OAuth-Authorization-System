@@ -210,7 +210,11 @@ router.get('/api-demo/contacts', async function (req, res) {
 
 router.get('/logout', async function (req, res) {
   const profile = oauthClient.getClientProfile(req.session ? req.session.oauthClientProfileKey : null);
-  if (req.session && req.session.tokens) {
+  if (req.session && req.session.tokens && req.session.oauthClientId) {
+    try {
+      await oauthClient.revokeConsent(req.session.tokens.access_token, req.session.oauthClientId, profile);
+    } catch (e) {}
+
     try {
       await oauthClient.revokeToken(req.session.tokens.access_token, 'access_token', profile);
     } catch (e) {}

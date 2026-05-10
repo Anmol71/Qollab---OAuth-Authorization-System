@@ -289,6 +289,10 @@ const db = {
     return _db.get('SELECT * FROM consents WHERE user_id = ? AND client_id = ?', [userId, clientId]);
   },
 
+  deleteConsent: function (userId, clientId) {
+    _db.run('DELETE FROM consents WHERE user_id = ? AND client_id = ?', [userId, clientId]);
+  },
+
   getRecentAuditLogs: function (limit) {
     return _db.all('SELECT * FROM audit_logs ORDER BY id DESC LIMIT ?', [limit || 50]);
   },
