@@ -1,0 +1,209 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env.production.local
+.env.development.local
+.env.test.local
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+oauth.db
+database/*.db
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+.nuxt/
+coverage/
+.nyc_output/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+*.swp
+*.swo
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+.vs/
+.vst/
+
+# OS-specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.AppleDouble
+.LSOverride
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# IDE plugins
+.vim/
+.emacs.d/
+.textadept/
+
+# Testing
+.mocha
+.nyc_output
+coverage
+.jest
+
+# Production build artifacts
+dist-prod/
+build-prod/
+
+# SSH keys
+*.pem
+*.key
+*.pub
+id_rsa
+id_rsa.pub
+
+# API keys and secrets
+config/secrets.json
+secrets.json
+.secrets
+
+# Package manager
+npm-debug.log
+yarn-error.log
+
+# Vite specific
+.vite/
+
+# Cache
+.cache/
+.eslintcache
+.prettier-cache
+
+# Misc
+.turbo/
+.husky/
+.git/
+.github/
+
+# OS temp files
+$RECYCLE.BIN/
+.Trash-*
+
+# Editor backups
+*.bak
+*.backup
+*.orig
+*.rej
+
+# Node
+.node_modules
+npm-shrinkwrap.json
+
+# Keep some important files
+!.env.example
+!.env.sample
+!.gitkeep
+
+# Private keys (highly sensitive)
+auth-server/keys/private.key
+resource-server/keys/*.key
+client-app/keys/*.key
+
+# Session data
+sessions/
+session-store.json
+
+# Uploaded files
+uploads/
+public/uploads/
+
+# Crash dumps
+.crash
+crash.dmp
+
+# Bytecode
+*.pyc
+*.pyo
+__pycache__/
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+
+# VSCode settings (if you want to exclude)
+# Uncomment to ignore VSCode workspace settings
+# .vscode/*
+# !.vscode/extensions.json
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Compiled files
+*.o
+*.a
+*.so
+.so/
+
+# Keep test configuration (but not test data)
+!.mocharc.json
+!jest.config.js
+!.eslintrc.js
+!.prettierrc.json
+
+# Azure
+.azure/
